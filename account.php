@@ -1,3 +1,13 @@
+<?php
+include 'connection.php';
+
+session_start();
+if (!isset($_SESSION["user"])) {
+    header("location: index.php?msg=Eseguire l'autenticazione prima di procedere");
+    die;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,7 +86,7 @@
             </div>
           </li>
           <li class="nav-item"><a href="about.php" class="nav-link">Chi siamo</a></li>
-          <li class="nav-item"><a href="contact.php" class="nav-link">Contatti</a></li>
+          <li class="nav-item"><a href="account.php" class="nav-link">Account</a></li>
           <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span
                 class="icon-shopping_cart"></span>[0]</a></li>
 
@@ -92,7 +102,7 @@
       <div class="row no-gutters slider-text align-items-center justify-content-center">
         <div class="col-md-9 ftco-animate text-center">
           <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact</span></p>
-          <h1 class="mb-0 bread">Contact Us</h1>
+          <h1 class="mb-0 bread">Accedi</h1>
         </div>
       </div>
     </div>
@@ -227,7 +237,7 @@
       <div class="row mb-5">
         <div class="col-md">
           <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Minishop</h2>
+            <h2 class="ftco-heading-2">Ottoshop</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
             <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
               <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>

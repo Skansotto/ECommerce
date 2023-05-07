@@ -1,3 +1,13 @@
+<?php
+include 'connection.php';
+
+session_start();
+if (!isset($_SESSION["user"])) {
+    header("location: index.php?msg=Eseguire l'autenticazione prima di procedere");
+    die;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,7 +80,7 @@
               </div>
             </li>
 	          <li class="nav-item"><a href="about.php" class="nav-link">Chi siamo</a></li>
-	          <li class="nav-item"><a href="contact.php" class="nav-link">Contatti</a></li>
+	          <li class="nav-item"><a href="account.php" class="nav-link">Account</a></li>
 	          <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 
 	        </ul>

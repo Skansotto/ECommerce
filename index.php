@@ -1,8 +1,9 @@
 <?php
 include 'connection.php';
 session_start();
+if (isset($_GET["msg"]) && $_GET["msg"]=="Eseguire l'autenticazione prima di procedere")
+	header("Location: login.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,9 +83,19 @@ session_start();
 						</div>
 					</li>
 					<li class="nav-item"><a href="about.php" class="nav-link">Chi siamo</a></li>
-					<li class="nav-item"><a href="contact.php" class="nav-link">Account</a></li>
-					<li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+					<?php
+						$account = '<li class="nav-item"><a href="account.php" class="nav-link">Account</a></li>';
+						$login = '<li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>';
+						$logout = '<li class="nav-item"><a href="logout.php" class="nav-link">Esci</a></li>';
 
+						if (isset($_SESSION["user"])){
+							echo $account;
+							echo $logout;
+						}
+						else
+							echo $login;
+					?>
+					<li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 				</ul>
 			</div>
 		</div>
@@ -223,33 +234,6 @@ session_start();
 		?>
 
 		</div>
-		</div>
-	</section>
-
-	<section class="ftco-section ftco-deal bg-primary">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<img src="images/prod-1.png" class="img-fluid" alt="">
-				</div>
-				<div class="col-md-6">
-					<div class="heading-section heading-section-white">
-						<span class="subheading">Promozioni</span>
-						<h2 class="mb-3">Affare del mese</h2>
-					</div>
-					<div class="text-deal">
-						<h2><a href="#">Nike Free RN 2019 iD</a></h2>
-						<div class="text-deal" style="padding-top: 5%;"></div>
-						<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-						<!-- <ul class="thumb-deal d-flex mt-4">
-							<li class="img" style="background-image: url(images/product-6.png);"></li>
-							<li class="img" style="background-image: url(images/product-2.png);"></li>
-							<li class="img" style="background-image: url(images/product-4.png);"></li>
-						</ul> -->
-					</div>
-
-				</div>
-			</div>
 		</div>
 	</section>
 
